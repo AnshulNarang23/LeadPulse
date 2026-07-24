@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Shield, User, LogOut, Layers, Users, FormInput } from 'lucide-react';
+import { User, LogOut } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -17,9 +17,6 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="brand">
-          <div className="brand-icon">
-            <Layers size={20} />
-          </div>
           <span>LeadPulse</span>
         </Link>
 
