@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { api } from '../services/api';
-import { Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Building2 } from 'lucide-react';
 
 export const PublicCapturePage = () => {
   const [formData, setFormData] = useState({
@@ -40,38 +40,38 @@ export const PublicCapturePage = () => {
   };
 
   return (
-    <div style={{ maxWidth: '640px', margin: '3rem auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--primary-light)', color: 'var(--primary)', padding: '0.4rem 1rem', borderRadius: 'var(--radius-full)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
-          <Sparkles size={16} />
-          <span>Get in Touch</span>
+    <div style={{ maxWidth: '580px', margin: '2.5rem auto' }}>
+      <div style={{ textAlign: 'left', marginBottom: '2rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--primary)', fontWeight: 700, fontSize: '0.825rem', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.5rem' }}>
+          <Building2 size={16} />
+          <span>Contact Sales</span>
         </div>
-        <h1 style={{ fontSize: '2.25rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '0.75rem' }}>
-          Accelerate Your Enterprise Growth
+        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
+          Schedule a product demonstration
         </h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>
-          Fill out the form below and our dedicated sales team will reach out to you within 24 hours.
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.5 }}>
+          Fill out the form below and a LeadPulse sales specialist will reach out to discuss your pipeline workflow.
         </p>
       </div>
 
       <div className="card" style={{ padding: '2rem' }}>
         {submitted ? (
-          <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'rgba(34, 197, 94, 0.15)', color: '#4ade80', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
-              <CheckCircle2 size={32} />
+          <div style={{ textAlign: 'left', padding: '1rem 0' }}>
+            <div style={{ width: '44px', height: '44px', background: '#f0fdf4', color: '#15803d', border: '1px solid #bbf7d0', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+              <CheckCircle2 size={24} />
             </div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>Inquiry Submitted!</h2>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-              Thank you for contacting us, <strong>{formData.name}</strong>. One of our team members will be in touch shortly.
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.5rem' }}>Inquiry Received</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+              Thank you for getting in touch, <strong>{formData.name}</strong>. Your inquiry has been routed to our team.
             </p>
             <button 
-              className="btn btn-secondary"
+              className="btn btn-secondary btn-sm"
               onClick={() => {
                 setSubmitted(false);
                 setFormData({ name: '', email: '', company: '', source: 'web_form' });
               }}
             >
-              Submit Another Response
+              Submit Another Inquiry
             </button>
           </div>
         ) : (
@@ -81,7 +81,7 @@ export const PublicCapturePage = () => {
             {fieldErrors.length > 0 && (
               <div className="alert alert-error" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
                 <strong>Validation Errors:</strong>
-                <ul style={{ paddingLeft: '1.2rem', marginTop: '0.3rem' }}>
+                <ul style={{ paddingLeft: '1.2rem', marginTop: '0.25rem' }}>
                   {fieldErrors.map((fe, i) => (
                     <li key={i}>{fe.field}: {fe.message}</li>
                   ))}
@@ -103,7 +103,7 @@ export const PublicCapturePage = () => {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Work Email *</label>
+              <label className="form-label">Work Email Address *</label>
               <input 
                 type="email" 
                 name="email" 
@@ -128,7 +128,7 @@ export const PublicCapturePage = () => {
             </div>
 
             <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }} disabled={loading}>
-              <span>{loading ? 'Submitting...' : 'Submit Inquiry'}</span>
+              <span>{loading ? 'Submitting...' : 'Submit Demo Request'}</span>
               <ArrowRight size={16} />
             </button>
           </form>
