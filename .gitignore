@@ -15,3 +15,10 @@ build/
 Thumbs.db
 .vscode/
 .idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage output
+coverage/

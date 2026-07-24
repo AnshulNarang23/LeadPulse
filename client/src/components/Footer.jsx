@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <p>
-        LeadPulse Platform &copy; {new Date().getFullYear()} —{' '}
+        LeadPulse Platform &copy; {new Date().getFullYear()} -{' '}
         <a 
           href="https://digitalheroesco.com" 
           target="_blank" 

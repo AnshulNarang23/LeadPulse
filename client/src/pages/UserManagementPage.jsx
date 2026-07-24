@@ -172,7 +172,7 @@ export const UserManagementPage = () => {
                   value={formData.role} 
                   onChange={handleChange}
                 >
-                  <option value="member">Member (Sales Rep)</option>
+                  <option value="member">Member (Sales Representative)</option>
                   <option value="admin">Admin (Full Control)</option>
                 </select>
               </div>

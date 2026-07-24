@@ -95,7 +95,7 @@ export const PublicCapturePage = () => {
                 type="text" 
                 name="name" 
                 className="form-input" 
-                placeholder="e.g. Jane Doe" 
+                placeholder="e.g. Akshay Kumar" 
                 value={formData.name} 
                 onChange={handleChange} 
                 required 
@@ -108,7 +108,7 @@ export const PublicCapturePage = () => {
                 type="email" 
                 name="email" 
                 className="form-input" 
-                placeholder="jane@company.com" 
+                placeholder="akshay@company.com" 
                 value={formData.email} 
                 onChange={handleChange} 
                 required 
@@ -121,7 +121,7 @@ export const PublicCapturePage = () => {
                 type="text" 
                 name="company" 
                 className="form-input" 
-                placeholder="e.g. Acme Corporation" 
+                placeholder="e.g. Cape of Good Films" 
                 value={formData.company} 
                 onChange={handleChange} 
               />
