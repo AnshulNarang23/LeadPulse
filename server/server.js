@@ -36,21 +36,37 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/lead_management';
 
 // Connect to Mongo and start server if not imported by Jest
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect(MONGODB_URI)
-    .then(async () => {
+  const startServer = async () => {
+    let mongoUri = process.env.MONGODB_URI;
+
+    if (!mongoUri) {
+      try {
+        console.log('No MONGODB_URI provided. Starting MongoMemoryServer fallback for standalone local execution...');
+        const { MongoMemoryServer } = require('mongodb-memory-server');
+        const mongod = await MongoMemoryServer.create();
+        mongoUri = mongod.getUri();
+        console.log(`MongoMemoryServer running at: ${mongoUri}`);
+      } catch (err) {
+        console.error('Could not start MongoMemoryServer fallback:', err);
+      }
+    }
+
+    try {
+      await mongoose.connect(mongoUri || 'mongodb://127.0.0.1:27017/lead_management');
       console.log('MongoDB connected successfully.');
       await seedDatabase();
       app.listen(PORT, () => {
         console.log(`Server listening on port ${PORT}`);
       });
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error('MongoDB connection error:', err);
-    });
+    }
+  };
+
+  startServer();
 }
 
 module.exports = app;
