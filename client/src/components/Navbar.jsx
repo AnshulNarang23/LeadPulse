@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { User, LogOut } from 'lucide-react';
+import { User, LogOut, Activity } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -16,8 +16,12 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
-        <Link to="/" className="brand">
-          <span>LeadPulse</span>
+        <Link to="/" className="brand" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}>
+          <Activity size={24} style={{ color: 'var(--primary)', strokeWidth: 2.5 }} />
+          <span style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>
+            <span style={{ color: 'var(--primary)' }}>Lead</span>
+            <span style={{ color: 'var(--text-main)' }}>Pulse</span>
+          </span>
         </Link>
 
         <div className="nav-links">

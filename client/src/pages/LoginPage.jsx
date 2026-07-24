@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ShieldCheck, UserCheck, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, UserCheck, CheckCircle2, Activity } from 'lucide-react';
 
 export const LoginPage = () => {
   const { login } = useAuth();
@@ -43,8 +43,12 @@ export const LoginPage = () => {
         
         {/* Left Column: B2B Value Proposition */}
         <div style={{ paddingRight: '1rem' }}>
-          <div style={{ marginBottom: '1.25rem' }}>
-            <span style={{ fontWeight: 800, fontSize: '1.25rem', color: 'var(--text-main)' }}>LeadPulse</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}>
+            <Activity size={26} style={{ color: 'var(--primary)', strokeWidth: 2.5 }} />
+            <span style={{ fontWeight: 800, fontSize: '1.35rem', letterSpacing: '-0.02em' }}>
+              <span style={{ color: 'var(--primary)' }}>Lead</span>
+              <span style={{ color: 'var(--text-main)' }}>Pulse</span>
+            </span>
           </div>
 
           <h1 style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.25, letterSpacing: '-0.02em', color: 'var(--text-main)', marginBottom: '1rem' }}>
