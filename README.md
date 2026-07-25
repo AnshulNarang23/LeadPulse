@@ -27,7 +27,7 @@ LeadPulse is a full-stack, multi-tenant lead management platform engineered for 
 ## Live Links & Demo Credentials
 
 ### Live Environment URLs
-- **Frontend App (Vercel)**: [https://leadpulse-xxxx.vercel.app](https://leadpulse-xxxx.vercel.app)
+- **Frontend App (Vercel)**: [https://leadpulse-omega.vercel.app/](https://leadpulse-omega.vercel.app/)
 - **Backend REST API (Render)**: [https://leadpulse-fe6v.onrender.com](https://leadpulse-fe6v.onrender.com)
 
 > **Note on Backend Cold Starts**: The backend API is hosted on Render's free tier. If inactive, the service spins down and may take 30–60 seconds to wake up on the first request.
